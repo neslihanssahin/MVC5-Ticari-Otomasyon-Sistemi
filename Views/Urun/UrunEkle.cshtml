@@ -1,0 +1,47 @@
+﻿@model  MvcOnlineTİcariOtomasyon.Models.Siniflar.Urun
+@{
+    ViewBag.Title = "UrunEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+<div class="container-fluid">
+    <h1 class="mt-4">Kategori Yönetimi</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="#">Ürünler</a></li>
+        <li class="breadcrumb-item active">Ürün Ekle</li>
+    </ol>
+</div>
+
+<form class="form-group" method="post">
+
+    @Html.Label("Ürün Adı")
+    @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control" })
+    <br />
+    @Html.Label("Marka")
+    @Html.TextBoxFor(x => x.Marka, new { @class = "form-control" })
+    <br />
+    @Html.Label("Stok")
+    @Html.TextBoxFor(x => x.Stok, new { @class = "form-control" })
+    <br />
+    @Html.Label("Alış Fiyatı")
+    @Html.TextBoxFor(x => x.AlisFiyati, new { @class = "form-control" })
+    <br />
+    @Html.Label("Satış Fiyatı")
+    @Html.TextBoxFor(x => x.SatisFiyati, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kategori")
+    @*@Html.TextBoxFor(x => x.Kategoriid, new { @class = "form-control" })*@
+    @Html.DropDownListFor(x=>x.Kategoriid,(List<SelectListItem>)ViewBag.dgr1,
+    new {@class="form-control"})
+
+    <br />
+    @Html.Label("Ürün Görsel")
+    @Html.TextBoxFor(x => x.UrunGorsel, new { @class = "form-control" })
+    <br />
+    @Html.Label("Ürün Durum")
+    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">KAYDET</button>
+</form>

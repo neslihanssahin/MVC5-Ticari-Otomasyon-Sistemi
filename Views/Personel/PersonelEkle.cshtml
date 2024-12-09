@@ -1,0 +1,33 @@
+﻿@model MvcOnlineTİcariOtomasyon.Models.Siniflar.Personel
+@{
+    ViewBag.Title = "PersonelEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <h1 class="mt-4">Personel Yönetimi</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="#">Personeller</a></li>
+        <li class="breadcrumb-item active">Personel Ekle</li>
+    </ol>
+</div>
+
+<form class="form-group" method="post">
+
+    @Html.Label("Personel Adı")
+    @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
+    <br />
+    @Html.Label("Personel Soyadı")
+    @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
+    <br />
+    @Html.Label("Personel Görsel")
+    @Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control" })
+    <br />
+    @Html.Label("Departman")
+    @*@Html.TextBoxFor(x => x.Kategoriid, new { @class = "form-control" })*@
+    @Html.DropDownListFor(x => x.Departmanid, (List<SelectListItem>)ViewBag.dgr1,
+    new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">KAYDET</button>
+</form>

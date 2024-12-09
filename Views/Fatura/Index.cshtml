@@ -1,0 +1,64 @@
+﻿@using MvcOnlineTİcariOtomasyon.Models.Siniflar
+@model List<Faturalar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <h1 class="mt-4">Fatura Yönetimi</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Rapor & Faturalar</li>
+        <li class="breadcrumb-item"><a href="#">Faturalar</a></li>
+
+    </ol>
+</div>
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+        <th>ID</th>
+        <th>Seri No</th>
+        <th>Sıra No</th>
+        <th>Vergi Dairesi</th>
+        <th>Tarih</th>
+        <th>Saat</th>
+        <th>Teslim Eden</th>
+        <th>Teslim Alan</th>
+        <th>Toplam</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@item.FaturaID</td>
+            <td>@item.FaturaSeriNo</td>
+            <td>@item.FaturaSıraNo</td>
+            <td>@item.VergiDairesi</td>
+            <td>@item.FaturaTarih</td>
+            <td>@item.Saat</td>
+            <td>@item.TeslimEden</td>
+            <td>@item.TeslimAlan</td>
+            <td>@item.Toplam</td>
+            <td>
+                <a class="btn btn-success btn-sm" href="/Fatura/FaturaGuncelle/@item.FaturaID">
+                    <i class="fas fa-pencil-alt">
+                    </i>
+                    Güncelle
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-warning btn-sm" href="/Fatura/FaturaDetay/@item.FaturaID" style="color: white;">
+                    <i class="fas fa-info-circle"></i>
+                    Detaylar
+                </a>
+            </td>
+
+
+
+
+        </tr>
+    }
+</table>
+<a class="btn btn-primary" href="/Fatura/FaturaEkle">Yeni Fatura Girişi</a>

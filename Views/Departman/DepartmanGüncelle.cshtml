@@ -1,0 +1,32 @@
+﻿@model MvcOnlineTİcariOtomasyon.Models.Siniflar.Departman
+@{
+    ViewBag.Title = "DepartmanGüncelle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <h1 class="mt-4">Departman Yönetimi</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="#">Departmanlar</a></li>
+        <li class="breadcrumb-item active">Departman Güncelle</li>
+    </ol>
+</div>
+
+@using (Html.BeginForm("DepartmanGüncelle", "Departman", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Departman Adı")
+        @Html.TextBoxFor(x => x.DepartmanAdı, new { @class = "form-control" })
+        <br />
+
+        @Html.Label("Departman Durum")
+        @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+
+        @Html.HiddenFor(x => x.DepartmanID)
+    </div>
+
+    <button class="btn btn-success">GÜNCELLE</button>
+}
+
+

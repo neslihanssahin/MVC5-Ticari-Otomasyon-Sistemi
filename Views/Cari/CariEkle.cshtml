@@ -1,0 +1,32 @@
+﻿@model  MvcOnlineTİcariOtomasyon.Models.Siniflar.Cari
+
+@{
+    ViewBag.Title = "CariEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <h1 class="mt-4">Cari Yönetimi</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="#">Cariler</a></li>
+        <li class="breadcrumb-item active">Cari Ekle</li>
+    </ol>
+</div>
+
+<form class="form-group" method="post">
+
+    @Html.Label("Cari Adı")
+    @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })
+    <br />
+    @Html.Label("Cari Soyadı")
+    @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control" })
+    <br />
+    @Html.Label("Cari Şehir")
+    @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })
+    <br />
+    @Html.Label("Cari Mail")
+    @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-success">KAYDET</button>
+</form>

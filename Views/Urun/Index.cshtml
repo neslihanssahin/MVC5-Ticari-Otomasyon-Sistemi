@@ -1,0 +1,56 @@
+﻿@using MvcOnlineTİcariOtomasyon.Models.Siniflar
+@model List<Urun>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <h1 class="mt-4">Ürün Yönetimi</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="#">İşlemler</a></li>
+        <li class="breadcrumb-item active">Ürünler</li>
+    </ol>
+</div>
+
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+        <th>ID</th>
+        <th>Ürün</th>
+        <th>Marka</th>
+        <th>Stok</th>
+        <th>Alış Fiyat</th>
+        <th>Satış Fiyat</th>
+        <th>Kategori</th>
+        <th>Görsel</th>
+        <th>Durum</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.UrunID</td>
+            <td>@item.UrunAd</td>
+            <td>@item.Marka</td>
+            <td>@item.Stok</td>
+            <td>@item.AlisFiyati</td>
+            <td>@item.SatisFiyati</td>
+            <td>@item.Kategori.KategoriAd</td> <!-- Kategori adını almak için düzenlendi -->
+            <td>@item.UrunGorsel</td>
+            <td>@item.Durum</td>
+            <td>
+                <a class="btn btn-success btn-sm" href="/Urun/UrunGuncelle/@item.UrunID">
+                    <i class="fas fa-pencil-alt"></i> Güncelle
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-danger btn-sm" href="/Urun/UrunSil/@item.UrunID">
+                    <i class="fas fa-trash"></i> Sil
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+<a class="btn btn-primary" href="/Urun/UrunEkle">Yeni Ürün Ekle</a>

@@ -1,0 +1,34 @@
+﻿@model MvcOnlineTİcariOtomasyon.Models.Siniflar.FaturaKalem
+@{
+    ViewBag.Title = "YeniKalem";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <h1 class="mt-4">Fatura Yönetimi</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active"> Fatura Detay</li>
+        <li class="breadcrumb-item"><a href="#">Yeni Kalem Ekle</a></li>
+
+    </ol>
+</div>
+
+<form class="form-group" method="post">
+
+    @Html.Label("Açıklama")
+    @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+    <br />
+    @Html.Label("Miktar")
+    @Html.TextBoxFor(x => x.Miktar, new { @class = "form-control" })
+    <br />
+    @Html.Label("Birim Fiyat")
+    @Html.TextBoxFor(x => x.BirimFiyat, new { @class = "form-control" })
+    <br />
+    @Html.Label("Tutar")
+    @Html.TextBoxFor(x => x.Tutar, new { @class = "form-control" })
+    <br />
+    @Html.Label("Fatura ID")
+    @Html.TextBoxFor(x => x.FaturaID, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Fatura Ekle</button>
+</form>

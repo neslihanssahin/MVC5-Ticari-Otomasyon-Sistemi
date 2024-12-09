@@ -1,0 +1,57 @@
+﻿@using MvcOnlineTİcariOtomasyon.Models.Siniflar
+@model List<Personel >
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <h1 class="mt-4">Personel Yönetimi</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="#">İşlemler</a></li>
+        <li class="breadcrumb-item active">Personeller</li>
+    </ol>
+</div>
+
+<table class="table table-striped" style="margin-top:20px;">
+    <tr>
+        <th>Personel ID </th>
+        <th>Personel Ad </th>
+        <th>Personel Soyad </th>
+        <th>Personel Görsel </th>
+        <th>Departman ID </th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+        <th>Satışlar</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.PersonelID</td>
+            <td>@item.PersonelAd</td>
+            <td>@item.PersonelSoyad</td>
+            <td>@item.PersonelGorsel</td>
+            <td>@item.Departman.DepartmanAdı</td>
+            <td>
+                <a class="btn btn-success btn-sm" href="/Personel/PersonelGuncelle/@item.PersonelID">
+                    <i class="fas fa-pencil-alt"></i> Güncelle
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-danger btn-sm" href="/Personel/PersonelSil/@item.PersonelID">
+                    <i class="fas fa-trash"></i> Sil
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-warning btn-sm" href="/Departman/DepartmanPersonelSatis/@item.PersonelID" style="color: white;">
+                    <i class="fas fa-info-circle"></i>
+                    Detaylar
+                </a>
+            </td>
+
+        </tr>
+    }
+</table>
+
+<a class="btn btn-primary" href="/Personel/PersonelEkle">Yeni Personel Ekle</a>

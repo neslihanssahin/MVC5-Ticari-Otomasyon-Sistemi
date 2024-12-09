@@ -1,0 +1,58 @@
+﻿@using MvcOnlineTİcariOtomasyon.Models.Siniflar
+@model List<Departman>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div class="container-fluid">
+    <h1 class="mt-4">Departman Yönetimi</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">İşlemler</li>
+        <li class="breadcrumb-item"><a href="#">Departmanlar</a></li>
+
+    </ol>
+</div>
+
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+        <th>ID</th>
+        <th>Departman Adı</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@item.DepartmanID</td>
+            <td>@item.DepartmanAdı</td>
+            <td>
+                <a class="btn btn-success btn-sm" href="/Departman/DepartmanGüncelle/@item.DepartmanID">
+                    <i class="fas fa-pencil-alt">
+                    </i>
+                    Güncelle
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-danger btn-sm" href="/Departman/DepartmanSil/@item.DepartmanID">
+                    <i class="fas fa-trash">
+                    </i>
+                    Sil
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-warning btn-sm" href="/Departman/DepartmanDetay/@item.DepartmanID" style="color: white;">
+                    <i class="fas fa-info-circle"></i>
+                    Detaylar
+                </a>
+            </td>
+
+
+
+
+        </tr>
+    }
+</table>
+<a class="btn btn-primary" href="/Departman/DepartmanEkle">Yeni Departman</a>
